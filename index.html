@@ -6,10 +6,26 @@
     <title>Jquery Salary Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="jquery.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
     <script src="client.js"></script>
 </head>
 <body>
-    
+    <h1>Salary Calculator</h1>
+    <section>
+        <h2>Add Employee</h2>
+     <form>
+        <div id="inputDiv">
+        <input type="text" id="firstNameIn" placeholder="first name">
+        <input type="text" id="lastNameIn" placeholder="last name">
+        <input type="text" id="idNameIn" placeholder="ID number">
+        <input type="text" id="jobTitleIn" placeholder="job title">
+        <input type="text" id="annualSalaryIn" placeholder="annual salary">
+        <button id="addInfo">Submit</button>
+        </div>
+      </form>
+    </section>
+    <div id="outputDiv">
+        <h2>Employees</h2>
+    </div>
 </body>
 </html>

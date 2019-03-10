@@ -5,7 +5,9 @@ const employees = [];
 // on click adds a new person to the table
 function readyNow() {
     $('#addInfo').on('click', addEmployee);
+    $('#totalMonthlyCost')
 } // end readNow
+
 
 function empInfo(){
     console.log('in empInfo');
@@ -28,7 +30,8 @@ function addInTable() {
         tr.data(item);
         $('.tableInputs').append(tr);
     }//end for loop
-
+    $('#totalMonthlyCost');
+    calcMonthlyCost()
 } // end addInTable
 
 function addEmployee() {
@@ -45,4 +48,15 @@ function addEmployee() {
 
 }//end addEmployee
 
-
+function calcMonthlyCost() {
+    let totalMonthly = 0;
+    for (let i = 0; i < employees.length; i++) {
+        totalMonthly += Number(employees[i].annualSalary) / 12;
+    }//end for
+    if (totalMonthly > 20000) {
+        $('#addMonthlyTotal').css({ 'background-color': 'red' }).append('$', totalMonthly.toFixed(2));
+    }//end if
+    else {
+        return $('#addMonthlyTotal').css({ 'background-color': 'orange' }).append('$', totalMonthly.toFixed(2));
+    }
+}//end calcMonthlyCost

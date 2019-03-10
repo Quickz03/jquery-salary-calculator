@@ -1,9 +1,12 @@
-h1 {
+header {
     text-align: center;
     background-color: yellow;
     background-size: cover;
+    font-size: 50px;
    
 }
+
+
 
 #inputDiv {
     margin: 5px;

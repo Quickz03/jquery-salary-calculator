@@ -1,93 +1,48 @@
 $(document).ready(readyNow);
 
-let employees = [];
+const employees = [];
 
-function addPerson(){
-    console.log('in addPerson');
+// on click adds a new person to the table
+function readyNow() {
+    $('#addInfo').on('click', addEmployee);
+} // end readNow
+
+function empInfo(){
+    console.log('in empInfo');
     let newPerson= {
         firstName: $( '#firstNameIn' ).val(),
         lastName: $('#lastNameIn').val(),
-        idName: $('#idNameIn').val(),
+        idNumber: $('#idNumberIn').val(),
         jobTitle: $('#jobTitleIn').val(),
         annualSalary: $('#annualSalaryIn').val()
         
     } // end newPerson
-    employees.push(newPerson)
-    console.log( 'employee :', employees );
-    displayFirst();
-    displaylast();
-    displayId();
-    displayJob();
-    displaySal();
-} // end addItem
+    return newPerson;
+} // end empInfo
 
-function displayFirst(){
-    console.log(' in displayFirst ');
-    el = $( '#firstOut');
-    el.empty();
-    // loop through the employees array
-    for (let first of employees){
-    // for each person create a new <td> in employeeOut
-        el.append(`<td>${ first.firstName }</td>`);
+function addInTable() {
+    $('.tableInputs').empty();
 
-    } // end for
-    
-} // end displayFirst
+    for (let item of employees) {
+        let tr = $(`<tr class = "newRow"><td>${item.firstName}</td><td>${item.lastName}</td><td>${item.idNumber}</td><td>${item.jobTitle}</td><td>$${item.annualSalary}</td></tr>`);
+        tr.data(item);
+        $('.tableInputs').append(tr);
+    }//end for loop
 
-function displaylast() {
-    console.log(' in displaylast ');
-    el = $('#lastOut');
-    el.empty();
-    // loop through the employees array
-    for (let last of employees) {
-        // for each person create a new <td> in employeeOut
-        el.append(`<td>${last.lastName}</td>`);
+} // end addInTable
 
-    } // end for
+function addEmployee() {
+    let employee = empInfo();
 
-} // end displaylast
+     employees.push(employee);
 
-function displayId() {
-    console.log(' in displayId ');
-    el = $('#IdOut');
-    el.empty();
-    // loop through the employees array
-    for (let id of employees) {
-        // for each person create a new <td> in employeeOut
-        el.append(`<td>${id.idName}</td>`);
+     $('#firstNameIn').val('');
+     $('#lastNameIn').val('');
+     $('#idNumberIn').val('');
+     $('#jobTitleIn').val('');
+     $('#annualSalaryIn').val('');
+     addInTable();
 
-    } // end for
+}//end addEmployee
 
-} // end displayId
-
-function displayJob() {
-    console.log(' in displayJob ');
-    el = $('#jobOut');
-    el.empty();
-    // loop through the employees array
-    for (let job of employees) {
-        // for each person create a new <td> in employeeOut
-        el.append(`<td>${job.jobTitle}</td>`);
-
-    } // end for
-
-} // end displayJob
-
-function displaySal() {
-    console.log(' in displaySal ');
-    el = $('#salOut');
-    el.empty();
-    // loop through the employees array
-    for (let sal of employees) {
-        // for each person create a new <td> in employeeOut
-        el.append(`<td>${sal.annualSalary}</td>`);
-
-    } // end for
-
-} // end displaySal
-
-// on click adds a new person to the table
-function readyNow(){
-    $( '#addInfo' ).on( 'click', addPerson);
-} // end readNow
 

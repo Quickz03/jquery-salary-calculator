@@ -10,39 +10,38 @@
     <script src="client.js"></script>
 </head>
 <body>
-    <h1>Salary Calculator</h1>
+    <header>Salary Calculator</header>
     <section>
         <h2>Add Employee</h2>
     
         <div id="inputDiv">
         <input type="text" id="firstNameIn" placeholder="first name">
         <input type="text" id="lastNameIn" placeholder="last name">
-        <input type="text" id="idNameIn" placeholder="ID number">
+        <input type="text" id="idNumberIn" placeholder="ID number">
         <input type="text" id="jobTitleIn" placeholder="job title">
         <input type="text" id="annualSalaryIn" placeholder="annual salary">
         <button id="addInfo">Submit</button>
         </div>
      
     </section>
-    <div id="outputDiv">
+
         <h2>Employees</h2>
-        <table>
+        <table class="employeeTable">
             <tr>
+             <thead>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>ID Number</th>
                 <th>Job Title</th>
                 <th>Annual Salary</th>
+             </thead>
             </tr>
-             <tr>
-                <td id="firstOut"></td>    
-                <td id="lastOut"></td>
-                <td id="idOut"></td>
-                <td id="jobOut"></td>
-                <td id="salOut"></td>         
-            </tr>
+             <tbody class="tableInputs">
+             </tbody>
         </table>
-        <h2>Total Monthly</h2>
-    </div>
+
+        <div>
+             <h3>Total Monthly:</h3>
+        </div>
 </body>
 </html>

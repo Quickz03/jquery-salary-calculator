@@ -51,12 +51,15 @@ function addEmployee() {
 function calcMonthlyCost() {
     let totalMonthly = 0;
     for (let i = 0; i < employees.length; i++) {
-        totalMonthly += Number(employees[i].annualSalary) / 12;
+        totalMonthly += Number(employees[i].annualSalary ) / 12;
     }//end for
     if (totalMonthly > 20000) {
         $('#addMonthlyTotal').css({ 'background-color': 'red' }).append('$', totalMonthly.toFixed(2));
     }//end if
     else {
-        return $('#addMonthlyTotal').css({ 'background-color': 'orange' }).append('$', totalMonthly.toFixed(2));
+        return $('#addMonthlyTotal').append('$', totalMonthly.toFixed(2));
     }
 }//end calcMonthlyCost
+
+
+
